@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1584205420 source:d:\hd\documentos\faculdade-materias\sistemas_distribuidos\socket_c\socket em c\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1631540236 source:d:\hd\documentos\faculdade-materias\sistemas_distribuidos\socket_c\socket em c\clientemain.c
+	<windows.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<stdlib.h>
+	<stdio.h>
+
