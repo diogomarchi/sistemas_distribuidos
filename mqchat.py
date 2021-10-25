@@ -8,7 +8,7 @@ pub_exchange='Diogo'
 
 
 def publisher (pub_queue1):
-    print("Iniciando thread publisher" + str(pub_queue1))
+    print("Iniciando thread publisher " + str(pub_queue1))
     
     logging.basicConfig()
 
@@ -29,9 +29,9 @@ def publisher (pub_queue1):
         mensagem = input()
         
         # Enviando uma mensagem (exchange=default, ....,...)
-        # Envio para o exchange 'professor'
+        # Envio para o exchange 'Diogo'
         channel.basic_publish(exchange=pub_exchange, routing_key=pub_routing_key, body=mensagem)
-        print("[x] Mensagem enviada para o consumidor")
+        print("Mensagem enviada para o consumidor[X]")
 
     connection.close()
 
@@ -48,7 +48,7 @@ def processa_msg(ch,method,properties,body):
     
 
 def consumer (pub_queue1):
-    print("Iniciando thread consumer" + str(pub_queue1))
+    print("Iniciando thread consumer " + str(pub_queue1))
     
     # Access the CLOUDAMQP_URL environment variable and parse it (fallback to RabbitMQ broker / localhost / cloudamqp
     url = os.environ.get('CLOUDAMQP_URL','amqps://hxbmajdt:RDTTIox2Rmes-fCamk6DxDFv7HF2tLNK@jackal.rmq.cloudamqp.com/hxbmajdt')
@@ -68,17 +68,32 @@ def consumer (pub_queue1):
  
 def iniciaGrupo():
     t_consumer = threading.Thread(target=consumer, args=('George', ))
-    t_consumer.start()    
-    
+    t_consumer.start()      
     t_publisher = threading.Thread(target=publisher, args=('George', ))
     t_publisher.start()   
 
 
-    t_consumer = threading.Thread(target=consumer, args=('teddy', ))
-    t_consumer.start()    
-    
-    t_publisher = threading.Thread(target=publisher, args=('teddy', ))
+    t_consumer = threading.Thread(target=consumer, args=('Teddy', ))
+    t_consumer.start()       
+    t_publisher = threading.Thread(target=publisher, args=('Teddy', ))
     t_publisher.start()   
+
+    t_consumer = threading.Thread(target=consumer, args=('Lucas', ))
+    t_consumer.start()        
+    t_publisher = threading.Thread(target=publisher, args=('Lucas', ))
+    t_publisher.start()   
+
+    t_consumer = threading.Thread(target=consumer, args=('Jonath', ))
+    t_consumer.start()       
+    t_publisher = threading.Thread(target=publisher, args=('Jonath', ))
+    t_publisher.start()   
+
+    t_consumer = threading.Thread(target=consumer, args=('Luiz', ))
+    t_consumer.start()        
+    t_publisher = threading.Thread(target=publisher, args=('Luiz', ))
+    t_publisher.start()   
+
+
 
 
 def iniciaIndividual(Fila):
